@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  /* 整体 UI 缩放基准 —— 改这一个值即可统一放大/缩小所有 rem 单位 */
+  font-size: 14px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #0a0e17;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.glass-panel {
+  backdrop-filter: blur(24px);
+  background: rgba(24, 27, 37, 0.6);
+}
+
+.stardust-bg {
+  background-image: 
+    radial-gradient(1px 1px at 20px 30px, #ffffff22, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 40px 70px, #ffffff33, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 50px 160px, #ffffff11, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 90px 40px, #ffffff22, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 130px 80px, #ffffff11, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 160px 120px, #ffffff22, rgba(0,0,0,0));
+  background-size: 200px 200px;
+}
+
+.sphere-glow {
+  filter: blur(80px);
+  background: radial-gradient(circle, rgba(208, 188, 255, 0.2) 0%, rgba(93, 230, 255, 0.1) 50%, transparent 100%);
+}
+
+/* 注册页面样式 */
+.neural-bg {
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(93, 230, 255, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(10, 14, 23, 1) 0%, rgba(5, 7, 10, 1) 100%);
+  background-attachment: fixed;
+}
+
+.starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxIiBjeT0iMSIgcj0iMSIgZmlsbD0id2hpdGUiIGZpbGwtb3BhY2l0eT0iMC4yIi8+PC9zdmc+');
+  background-repeat: repeat;
+  opacity: 0.3;
+}
+
+.glow-input:focus {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.15);
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.4);
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.3);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.5);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: rgba(139, 92, 246, 0.7);
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(12px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes backdropIn {
+  from { opacity: 0; backdrop-filter: blur(0); }
+  to { opacity: 1; backdrop-filter: blur(8px); }
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-modal-in {
+  animation: modalIn 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.animate-backdrop-in {
+  animation: backdropIn 0.25s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideInUp 0.25s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
